@@ -1,6 +1,6 @@
-import flashcards from "./flashcard"
+import flashcards from "../Dados/flashcard"
 
-const adicionar_flashcard = () => {
+const adicionar_flashcard = (id, pergunta) => {
     if(flashcards.length > 0){
         let ultimo_flashcard = flashcards[flashcards.length - 1]
         novo_flashcard.id = ultimo_flashcard.id + 1;
@@ -10,4 +10,4 @@ const adicionar_flashcard = () => {
     flashcards.push(novo_flashcard)
     return true;
 }
-export default flashcards
+export default flashcards;

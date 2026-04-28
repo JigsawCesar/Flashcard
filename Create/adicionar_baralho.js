@@ -1,4 +1,4 @@
-import baralhos from "./baralho"
+import baralhos from "../Dados/baralho"
 
 const adicionar_baralho = (id, titulo) => {
     if (baralhos.length > 0){
@@ -11,4 +11,3 @@ const adicionar_baralho = (id, titulo) => {
  return true;
 }
 export default baralhos;
-
