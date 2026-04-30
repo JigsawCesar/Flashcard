@@ -1,13 +1,28 @@
-import baralhos from "../Dados/baralho"
+const atualizar_baralho = (id, novos_dados) => {
 
-const adicionar_baralho = (id, titulo) => {
-    if (baralhos.length > 0){
-        let ultimo_baralho = baralhos[baralhos.length - 1];
-        novo_baralho.id = ultimo_baralho.id + 1
-    }else{
-        novo_baralho.id = 1
+    const indice = baralhos.findIndex(baralho => baralho.id === id);
+
+   
+    if (indice === -1) {
+        console.log("Erro: Baralho não encontrado.");
+        return;
     }
- baralhos.push(novo_baralho);
- return true;
-}
-export default adicionar_baralho;
+
+    if (novos_dados.titulo) {
+        const conflitos = baralhos.filter(baralho => 
+            baralho.titulo === novos_dados.titulo && baralho.id !== id
+        );
+
+        if (conflitos.length > 0) {
+            console.log("Erro: Os novos dados já estão em uso por outro baralho.");
+            return;
+        }
+    }
+
+
+    baralhos[indice].id = novos_dados.id || baralhos[indice].id;
+    baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo;
+
+    console.log("Baralho atualizado com sucesso!");
+};
+export default atualizar_baralho;
