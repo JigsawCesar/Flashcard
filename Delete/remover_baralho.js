@@ -5,7 +5,7 @@ const remover_baralho = (baralhos, flashcards, id) => {
     if (indice !== -1) {
         baralhos.splice(indice, 1);
 
-        return flashcards.filter(flashcard => flashcard.baralho_id !== id);
+        return flashcards.filter(flashcard => flashcard.idBaralho !== id);
     };
 };
 
