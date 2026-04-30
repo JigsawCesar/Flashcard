@@ -18,3 +18,5 @@ const buscar =(flashcards)=>{
    
     };
 };
+
+export default buscar;
