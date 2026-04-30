@@ -10,4 +10,4 @@ const adicionar_baralho = (id, titulo) => {
  baralhos.push(novo_baralho);
  return true;
 }
-export default baralhos;
+export default adicionar_baralho;
