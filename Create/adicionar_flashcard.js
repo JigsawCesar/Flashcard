@@ -10,4 +10,4 @@ const adicionar_flashcard = (id, pergunta) => {
     flashcards.push(novo_flashcard)
     return true;
 }
-export default flashcards;
+export default adicionar_flashcard;
