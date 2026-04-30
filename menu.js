@@ -15,7 +15,6 @@ ${roxo}⦙ ${negrito}${amarelo}[6]${reset}  - ${amarelo}Atualizar Flashcard${res
 ${roxo}⦙ ${negrito}${amarelo}[7]${reset}  - ${amarelo}Remover Baralho${reset}               ${roxo}⦙
 ${roxo}⦙ ${negrito}${amarelo}[8]${reset}  - ${amarelo}Remover Flashcard${reset}             ${roxo}⦙
 ${roxo}⦙ ${negrito}${amarelo}[9]${reset}  - ${amarelo}Buscar por Pergunta${reset}           ${roxo}⦙
-${roxo}⦙ ${negrito}${amarelo}[10]${reset} - ${amarelo}Buscar por Baralho${reset}            ${roxo}⦙
 ${roxo}⦙                                      ⦙
 ${roxo}⦙ ${vermelho}[0]${reset} - ${vermelho}Sair${reset}                           ${roxo}⦙
 ${roxo}=======================================${reset}`);
