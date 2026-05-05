@@ -1,28 +1,36 @@
-const atualizar_baralho = (id, novos_dados) => {
+import baralhos from "../Dados/baralho";
 
-    const indice = baralhos.findIndex(baralho => baralho.id === id);
-
+const adicionar_baralho = (novo_baralho) => {
    
-    if (indice === -1) {
-        console.log("Erro: Baralho não encontrado.");
+    const conflitos_id = baralhos.filter(baralho => 
+        baralho.id === novo_baralho.id
+    );
+
+    if (conflitos_id.length > 0) {
+        console.log("erro: o id informado ja esta em uso.");
         return;
     }
 
-    if (novos_dados.titulo) {
-        const conflitos = baralhos.filter(baralho => 
-            baralho.titulo === novos_dados.titulo && baralho.id !== id
+    if (novo_baralho.titulo) {
+        const conflitos_titulo = baralhos.filter(baralho => 
+            baralho.titulo === novo_baralho.titulo
         );
 
-        if (conflitos.length > 0) {
-            console.log("Erro: Os novos dados já estão em uso por outro baralho.");
+        if (conflitos_titulo.length > 0) {
+            console.log("erro: ja existe um baralho com este titulo.");
             return;
         }
     }
 
 
-    baralhos[indice].id = novos_dados.id || baralhos[indice].id;
-    baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo;
+    const baralho_formatado = {
+        id: novo_baralho.id,
+        titulo: novo_baralho.titulo
+    };
 
-    console.log("Baralho atualizado com sucesso!");
+    baralhos.push(baralho_formatado);
+
+    console.log("baralho_criado_com_sucesso");
 };
-export default atualizar_baralho;
+
+export default adicionar_baralho;

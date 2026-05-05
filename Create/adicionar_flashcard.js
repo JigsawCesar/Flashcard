@@ -1,15 +1,17 @@
-const atualizar_flashcard = (id, novos_dados) => {
-   
-    const indice = flashcard.findIndex(f => f.id === id)
-    if (indice === -1) {
-        console.log(" Erro: flashcard não encontrado ! ");
+const adicionar_flashcard = (novo_flashcard) => {
+    
+  
+    const id_em_uso = flashcard.filter(f => f.id === novo_flashcard.id);
+    
+    if (id_em_uso.length > 0) {
+        console.log(" Erro: O ID informado já está em uso! ");
         return;
     }
 
    
-    if (novos_dados.pergunta) {
+    if (novo_flashcard.pergunta) {
         const pergunta_em_uso = flashcard.filter(f => 
-            f.pergunta === novos_dados.pergunta && f.id !== id
+            f.pergunta === novo_flashcard.pergunta
         );
 
         if (pergunta_em_uso.length > 0) {
@@ -18,9 +20,15 @@ const atualizar_flashcard = (id, novos_dados) => {
         }
     }
 
-    flashcard[indice].pergunta = novos_dados.pergunta || flashcard[indice].pergunta;
-    flashcard[indice].resposta = novos_dados.resposta || flashcard[indice].resposta;
+    const flashcard_formatado = {
+        id: novo_flashcard.id,
+        pergunta: novo_flashcard.pergunta,
+        resposta: novo_flashcard.resposta
+    };
 
-    console.log(" Flashcard atualizado com sucesso! ");
+    flashcard.push(flashcard_formatado);
+
+    console.log(" Flashcard adicionado com sucesso! ");
 };
-export default atualizar_flashcard;
+
+export default adicionar_flashcard;
