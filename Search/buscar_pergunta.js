@@ -2,7 +2,7 @@ import promptSync from "prompt-sync";
 import { vermelho, reset } from "./cores_terminal.js" 
 const prompt= promptSync();
 
-const buscar_perguntas =(flashcards)=>{
+const buscar_pergunta = (flashcards) => {
 
     let entrada = prompt(`pesquise: `);
     let filtro = flashcards.filter(flashcards => flashcards.pergunta.toLowerCase().includes(entrada.toLowerCase()))
@@ -19,4 +19,4 @@ const buscar_perguntas =(flashcards)=>{
     };
 };
 
-export default buscar_perguntas;
+export default buscar_pergunta;
