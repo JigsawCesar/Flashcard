@@ -17,10 +17,14 @@ import buscar_pergunta from "./Search/buscar_pergunta.js"
 
 let opcao = 0;
 
+
 switch (opcao) {
     
     case 1:
-        
+        let novo_baralho={
+            titulo: prompt(`Digite o seu titulo:  `)
+        }
+        adicionar_baralho(novo_baralho)
         break;
     
     case 2:
@@ -46,7 +50,11 @@ switch (opcao) {
         break;
     
     case 6:
-        
+
+    let novos_dados={
+        titulo: prompt(`Digite um novo titulo:  `)
+    }
+        atualiza_baralhos(id, novos_dados)
         break;
     
     case 7:
@@ -67,6 +75,7 @@ switch (opcao) {
         break;
     
     case 10:
+        buscar_pergunta(flashcards)
         
         break;
     

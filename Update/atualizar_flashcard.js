@@ -31,3 +31,4 @@ const atualizar_flashcard = (id, novos_dados) => {
 
     console.log("Sucesso: Flashcard atualizado!");
 };
+export default atualizar_flashcard;
