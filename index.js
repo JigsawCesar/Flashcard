@@ -14,3 +14,53 @@ import atualiza_flashcards from "./Update/atualizar_flashcard.js"
 import remover_baralho from "./Delete/remover_baralho.js"
 import remover_flashcard from "./Delete/remover_flashcard.js"
 import buscar_pergunta from "./Search/buscar_pergunta.js"
+
+let opcao = 0;
+
+switch (opcao) {
+    
+    case 1:
+        
+        break;
+    
+    case 2:
+        
+        break;
+    
+    case 3:
+        
+        break;
+    
+    case 4:
+        
+        break;
+    
+    case 5:
+        
+    
+        break;
+    
+    case 6:
+        
+        break;
+    
+    case 7:
+        
+        break;
+    
+    case 8:
+        
+        break;
+    
+    case 9:
+        
+        break;
+    
+    case 10:
+        
+        break;
+    
+    default:
+    
+        break;
+}
