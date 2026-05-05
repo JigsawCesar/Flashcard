@@ -24,7 +24,12 @@ switch (opcao) {
         break;
     
     case 2:
-        
+        let novo_flashcard = { 
+            pergunta:prompt(` Digite sua pergunta:  `),
+            resposta: prompt( `Digite a sua resposta:  `)
+            
+        }
+        adicionar_flashcard(flashcards)
         break;
     
     case 3:
@@ -45,7 +50,12 @@ switch (opcao) {
         break;
     
     case 7:
-        
+        let novos_dados = {
+            pergunta : prompt( ` Digite sua pergunta: `),
+            resposta: prompt( `Digite sua resposta:  `)  
+       
+        }
+        atualiza_flashcards(novos_dados)
         break;
     
     case 8:
