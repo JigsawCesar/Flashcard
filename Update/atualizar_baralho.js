@@ -1,30 +1,31 @@
-const atualizar_baralho=(id,titulo)=>{
-    const indice = baralhos.findIndex(baralhos => baralhos.id === id)
-    
+const atualizar_baralho = (id, novos_dados) => {
 
-      if(indice ===-1){
-        console.log(" Erro: Usuario não encontrado... ");
-        return
-    }
-}
-if (novos_dados.titulo) {
-    let dados_em_uso = false
-    for(let i = 0; i <baralhos.length; i++){
-        let baralho_atual = baralhos[i]
-            if (baralho_atual.titulo === novos_dados.titulo && baralho_atual.id !== id) {
-dados_em_uso = true
-break
+    const indice = baralhos.findIndex(baralho => baralho.id === id);
+
+    if (indice === -1) {
+        console.log("Erro: Baralho não encontrado.");
+        return;
     }
 
-}
-if(dados_em_uso) {
+    if (novos_dados.titulo) {
+        const conflitos = baralhos.filter(baralho => 
+            baralho.titulo === novos_dados.titulo && baralho.id !== id
+        );
 
-    console.log(" Erro: Os novos dados já estão em uso por outro usuario ");
-        return
-    
+      
+        if (conflitos.length > 0) {
+            console.log("Erro: Os novos dados já estão em uso por outro baralho.");
+            return;
+        }
     }
+
     
-    }
-    baralhos[indice].id = novos_dados.id || baralhos[indice].id
-    baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo
+    baralhos[indice].id = novos_dados.id || baralhos[indice].id;
+    baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo;
+
+    console.log("Baralho atualizado com sucesso!");
+};
+
+export default atualizar_baralho;
+
      
