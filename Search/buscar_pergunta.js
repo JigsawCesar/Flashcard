@@ -1,22 +1,22 @@
 import promptSync from "prompt-sync";
-import { vermelho, reset } from "./cores_terminal.js" 
+import { vermelho, reset, ciano, negrito, rosa } from "../cores_terminal.js" 
 const prompt= promptSync();
 
 const buscar_pergunta = (flashcards) => {
 
-    let entrada = prompt(`pesquise: `);
-    let filtro = flashcards.filter(flashcards => flashcards.pergunta.toLowerCase().includes(entrada.toLowerCase()))
-   
-    if (filtro.length > 0){
-      console.log(`
-      Alguns resultados encontrados: `);
-      console.log(filtro);
-      
-    } else {
-   
-    console.log(`========${vermelho} Nenhum resultado encontrado${reset} =======`);
-   
-    };
+  let entrada = prompt(`${negrito}${ciano}⦙ Digite sua pesquisa: ${reset}`);
+  let filtro = flashcards.filter(flashcards => flashcards.pergunta.toLowerCase().includes(entrada.toLowerCase()))
+
+  if (filtro.length > 0){
+
+    console.log(`\n${negrito}${rosa}⦙ Alguns resultados encontrados: ${reset}`);
+    console.log(filtro);
+  
+  } else {
+
+  console.log(`${vermelho}${negrito}⦙ Nenhum resultado encontrado!${reset}`);
+
+  };
 };
 
 export default buscar_pergunta;
