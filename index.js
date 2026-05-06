@@ -9,12 +9,12 @@ import adicionar_flashcard from "./Create/adicionar_flashcard.js";
 import listar_baralho from "./Read/listar_baralho.js";
 import listar_flashcard from "./Read/listar_flashcard.js";
 import listar_por_baralho from "./Read/listar_por_baralho.js";
-import atualiza_baralhos from "./Update/atualizar_baralho.js";
-import atualiza_flashcards from "./Update/atualizar_flashcard.js";
+import atualizar_baralhos from "./Update/atualizar_baralho.js";
+import atualizar_flashcards from "./Update/atualizar_flashcard.js";
 import remover_baralho from "./Delete/remover_baralho.js";
 import remover_flashcard from "./Delete/remover_flashcard.js";
 import buscar_pergunta from "./Search/buscar_pergunta.js";
-import menu from "./menu.js"
+import menu from "./me"
 
 let opcao = 0;
 let id_escolhido = 0;
@@ -94,7 +94,7 @@ do {
             novos_dados = {
                 titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
             };
-                atualiza_baralhos(id, novos_dados);
+                atualizar_baralhos(id, novos_dados);
 
         break;
         
@@ -105,7 +105,7 @@ do {
                 resposta: prompt( `${negrito}${ciano}⦙ Digite sua resposta: ${reset}`)  
         
             };
-            atualiza_flashcards(novos_dados);
+            r(novos_dados);
 
         break;
         
