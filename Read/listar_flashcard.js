@@ -10,8 +10,8 @@ const listar_flashcard = (flashcards) => {
 
     flashcards.forEach(flashcard => {
         console.log(`\n${negrito}${ciano}\n⦙ ID:${reset} ${flashcard.id}`);
-        console.log(`${negrito}${ciano}\n⦙ Pergunta:${reset} ${flashcard.pergunta}`);
-        console.log(`${negrito}${ciano}\n⦙ Resposta:${reset} ${flashcard.resposta}`);
+        console.log(`${negrito}${ciano}⦙ Pergunta:${reset} ${flashcard.pergunta}`);
+        console.log(`${negrito}${ciano}⦙ Resposta:${reset} ${flashcard.resposta}`);
         
     });
 

@@ -10,7 +10,7 @@ const listar_baralho = (baralhos) => {
 
     baralhos.forEach(baralho => {
         console.log(`\n${negrito}${ciano}\n⦙ ID:${reset} ${baralho.id}`);
-        console.log(`${negrito}${ciano}\n⦙ Título:${reset} ${baralho.titulo}`);
+        console.log(`${negrito}${ciano}⦙ Título:${reset} ${baralho.titulo}`);
     });
 
 };
