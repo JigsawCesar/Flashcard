@@ -1,5 +1,5 @@
-import baralhos from "../Dados/baralho";
-import { reset, negrito, vermelho } from "../cores_terminal";
+import baralhos from "../Dados/baralho.js";
+import { reset, negrito, vermelho, rosa } from "../cores_terminal.js";
 
 const adicionar_baralho = (novo_baralho) => {
    
@@ -31,7 +31,7 @@ const adicionar_baralho = (novo_baralho) => {
 
     baralhos.push(baralho_formatado);
 
-    console.log("baralho_criado_com_sucesso");
+    console.log(`\n{negrito}${rosa}⦙ Baralho criado com sucesso!${reset}`);
 };
 
 export default adicionar_baralho;

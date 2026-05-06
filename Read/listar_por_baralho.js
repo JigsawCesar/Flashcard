@@ -1,5 +1,5 @@
-import flashcards from "../Dados/flashcard";
-import { negrito, reset, vermelho } from "../cores_terminal";
+import flashcards from "../Dados/flashcard.js";
+import { negrito, reset, vermelho } from "../cores_terminal.js";
 
 const listar_por_baralho = (id_escolhido) => {
     

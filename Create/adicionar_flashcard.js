@@ -1,7 +1,7 @@
-const adicionar_flashcard = (novo_flashcard) => {
+const adicionar_flashcard = (novo_flashcard,flashcards) => {
     
   
-    const id_em_uso = flashcard.filter(f => f.id === novo_flashcard.id);
+    const id_em_uso = flashcards.filter(f => f.id === novo_flashcard.id);
     
     if (id_em_uso.length > 0) {
         console.log(" Erro: O ID informado já está em uso! ");
