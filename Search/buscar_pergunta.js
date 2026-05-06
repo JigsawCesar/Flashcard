@@ -1,3 +1,4 @@
+
 import promptSync from "prompt-sync";
 import { vermelho, reset, ciano, negrito, rosa } from "../cores_terminal.js" 
 const prompt= promptSync();

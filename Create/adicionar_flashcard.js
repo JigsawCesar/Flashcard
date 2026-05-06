@@ -1,4 +1,6 @@
-const adicionar_flashcard = (novo_flashcard,flashcards) => {
+
+
+const adicionar_flashcard = (novo_flashcard, flashcards) => {
     
   
     const id_em_uso = flashcards.filter(f => f.id === novo_flashcard.id);
@@ -7,10 +9,12 @@ const adicionar_flashcard = (novo_flashcard,flashcards) => {
         console.log(" Erro: O ID informado já está em uso! ");
         return;
     }
-
+    const novoId = flashcards.length > 0
+    ? flashcards[flashcards.length - 1].id + 1
+    : 1;
    
     if (novo_flashcard.pergunta) {
-        const pergunta_em_uso = flashcard.filter(f => 
+        const pergunta_em_uso = flashcards.filter(f => 
             f.pergunta === novo_flashcard.pergunta
         );
 
@@ -21,12 +25,12 @@ const adicionar_flashcard = (novo_flashcard,flashcards) => {
     }
 
     const flashcard_formatado = {
-        id: novo_flashcard.id,
+        id: novoId,
         pergunta: novo_flashcard.pergunta,
         resposta: novo_flashcard.resposta
     };
 
-    flashcard.push(flashcard_formatado);
+    flashcards.push(flashcard_formatado);
 
     console.log(" Flashcard adicionado com sucesso! ");
 };
