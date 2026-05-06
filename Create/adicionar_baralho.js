@@ -1,4 +1,5 @@
 import baralhos from "../Dados/baralho";
+import { reset, negrito, vermelho } from "../cores_terminal";
 
 const adicionar_baralho = (novo_baralho) => {
    
@@ -7,7 +8,7 @@ const adicionar_baralho = (novo_baralho) => {
     );
 
     if (conflitos_id.length > 0) {
-        console.log("erro: o id informado ja esta em uso.");
+        console.log(`${negrito}${vermelho}⦙ Erro: o ID informado já está em uso!${reset}`);
         return;
     }
 
@@ -17,7 +18,7 @@ const adicionar_baralho = (novo_baralho) => {
         );
 
         if (conflitos_titulo.length > 0) {
-            console.log("erro: ja existe um baralho com este titulo.");
+            console.log(`${negrito}${vermelho}⦙ Erro: já existe um baralho com este título.${reset}`);
             return;
         }
     }
