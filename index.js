@@ -90,11 +90,11 @@ do {
         break;
         
         case 6:
-
+                let id = prompt('digite o id do baralho: ')
             novos_dados = {
                 titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
             };
-                atualizar_baralhos(id, novos_dados);
+                atualizar_baralhos(id, novos_dados, baralhos);
 
         break;
         
@@ -105,7 +105,7 @@ do {
                 resposta: prompt( `${negrito}${ciano}⦙ Digite sua resposta: ${reset}`)  
         
             };
-            r(novos_dados);
+            atualizar_flashcards(id, novos_dados);
 
         break;
         

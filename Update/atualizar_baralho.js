@@ -1,8 +1,10 @@
-const atualizar_baralho = (id, novos_dados) => {
+const atualizar_baralho = (id, novos_dados, baralhos) => {
 
 const indice = baralhos.findIndex(baralho => baralho.id === id);
 
-if (indice === -1) {
+baralhos[indice].id
+
+ if (indice === -1) {
     console.log("Erro: Baralho não encontrado.");
     return;
 }
