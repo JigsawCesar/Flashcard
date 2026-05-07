@@ -1,4 +1,4 @@
-
+import { reset, negrito, vermelho, rosa } from "../cores_terminal.js";
 
 const adicionar_flashcard = (novo_flashcard, flashcards) => {
     
@@ -6,9 +6,9 @@ const adicionar_flashcard = (novo_flashcard, flashcards) => {
     const id_em_uso = flashcards.filter(f => f.id === novo_flashcard.id);
     
     if (id_em_uso.length > 0) {
-        console.log(" Erro: O ID informado já está em uso! ");
+        console.log(`${negrito}${vermelho}⦙ Erro: O ID informado já está em uso! ${reset}`);
         return;
-    }
+    };
     const novoId = flashcards.length > 0
     ? flashcards[flashcards.length - 1].id + 1
     : 1;
