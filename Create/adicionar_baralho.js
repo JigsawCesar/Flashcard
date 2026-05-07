@@ -35,7 +35,7 @@ const adicionar_baralho = (novo_baralho) => {
 
     baralhos.push(baralho_formatado);
 
-    console.log(`\n${negrito}${rosa}⦙ Baralho criado com sucesso!${reset}`);
+    console.log(`${negrito}${rosa}⦙ Baralho criado com sucesso!${reset}`);
 };
 
 export default adicionar_baralho;

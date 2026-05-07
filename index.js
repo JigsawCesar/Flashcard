@@ -34,7 +34,7 @@ do {
 
             console.log(`${roxo}    
 ╭────────────────────────────────────╮                              
-│${reset}           Até a próxima!${roxo}           │
+│${reset}        👋 Até a próxima!${roxo} 👋        │
 ╰────────────────────────────────────╯${reset}\n`);
             setTimeout(function() {
                 
@@ -46,20 +46,26 @@ do {
         
         case 1:
 
-        let novo_baralho = {
-            titulo: prompt(`${negrito}${ciano}⦙ Digite o seu titulo: ${reset}`)
-        }
-        adicionar_baralho(novo_baralho);
+            let novo_baralho = {
+                titulo: prompt(`${negrito}${ciano}⦙ Digite o título do baralho: ${reset}`)
+            };
+            console.clear();
+            adicionar_baralho(novo_baralho);
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
     
         case 2:
 
             let novo_flashcard = { 
-                pergunta:prompt(`${negrito}${ciano}⦙  Digite sua pergunta: ${reset}`),
+                pergunta:prompt(`${negrito}${ciano}⦙ Digite sua pergunta: ${reset}`),
                 resposta: prompt(`${negrito}${ciano}⦙ Digite a sua resposta: ${reset}`)
             };
+            console.clear();
             adicionar_flashcard(novo_flashcard,flashcards);
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -90,10 +96,10 @@ do {
         break;
         
         case 6:
-                let id = prompt('digite o id do baralho: ')
-            novos_dados = {
-                titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
-            };
+                let id = prompt(`${negrito}${ciano}⦙ Digite o id do baralho: ${reset}`)
+                novos_dados = {
+                    titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
+                };
                 atualizar_baralhos(id, novos_dados, baralhos);
 
         break;

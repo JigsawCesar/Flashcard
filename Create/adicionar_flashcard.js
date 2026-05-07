@@ -32,7 +32,7 @@ const adicionar_flashcard = (novo_flashcard, flashcards) => {
 
     flashcards.push(flashcard_formatado);
 
-    console.log(" Flashcard adicionado com sucesso! ");
+    console.log(`${negrito}${rosa}⦙ Flashcard adicionado com sucesso! ${reset}`);
 };
 
 export default adicionar_flashcard;
