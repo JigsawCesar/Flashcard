@@ -14,7 +14,7 @@ import atualizar_flashcards from "./Update/atualizar_flashcard.js";
 import remover_baralho from "./Delete/remover_baralho.js";
 import remover_flashcard from "./Delete/remover_flashcard.js";
 import buscar_pergunta from "./Search/buscar_pergunta.js";
-import menu from "./me"
+import menu from "./menu.js"
 
 let opcao = 0;
 let id_escolhido = 0;
