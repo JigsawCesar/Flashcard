@@ -11,6 +11,10 @@ const adicionar_baralho = (novo_baralho) => {
         console.log(`${negrito}${vermelho}⦙ Erro: o ID informado já está em uso!${reset}`);
         return;
     }
+    
+    const novo_id = baralhos.length > 0
+    ? baralhos[baralhos.length - 1].id + 1
+    : 1;
 
     if (novo_baralho.titulo) {
         const conflitos_titulo = baralhos.filter(baralho => 
@@ -25,7 +29,7 @@ const adicionar_baralho = (novo_baralho) => {
 
 
     const baralho_formatado = {
-        id: novo_baralho.id,
+        id: novo_id,
         titulo: novo_baralho.titulo
     };
 

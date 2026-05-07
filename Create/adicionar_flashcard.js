@@ -9,7 +9,7 @@ const adicionar_flashcard = (novo_flashcard, flashcards) => {
         console.log(`${negrito}${vermelho}⦙ Erro: O ID informado já está em uso! ${reset}`);
         return;
     };
-    const novoId = flashcards.length > 0
+    const novo_id = flashcards.length > 0
     ? flashcards[flashcards.length - 1].id + 1
     : 1;
    
@@ -25,7 +25,7 @@ const adicionar_flashcard = (novo_flashcard, flashcards) => {
     }
 
     const flashcard_formatado = {
-        id: novoId,
+        id: novo_id,
         pergunta: novo_flashcard.pergunta,
         resposta: novo_flashcard.resposta
     };
