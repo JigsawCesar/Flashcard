@@ -59,7 +59,7 @@ do {
                 pergunta:prompt(`${negrito}${ciano}⦙  Digite sua pergunta: ${reset}`),
                 resposta: prompt(`${negrito}${ciano}⦙ Digite a sua resposta: ${reset}`)
             };
-            adicionar_flashcard(flashcards);
+            adicionar_flashcard(novo_flashcard,flashcards);
 
         break;
         
