@@ -1,11 +1,12 @@
 import flashcards from "../Dados/flashcard.js";
+import { negrito, vermelho, reset, rosa } from "../cores_terminal.js";
 
 const atualizar_flashcard = (id, novos_dados) => {
  
-    const indice = flashcards.findIndex(f => f.id === id);
+    const indice = flashcards.findIndex(f => f.id === Number(id));
 
     if (indice === -1) {
-        console.log(" Erro: flashcard não encontrado ! ");
+        console.log(`${negrito}${vermelho}⦙ Erro: Flashcard não encontrado!${reset}`);
         return;
     }
 
@@ -13,16 +14,16 @@ const atualizar_flashcard = (id, novos_dados) => {
         let pergunta_em_uso = false;
         
         for (let i = 0; i < flashcards.length; i++) {
-            let flashcard_atual = flashcard[i];
+            let flashcard_atual = flashcards[i];
          
-            if (flashcard_atual.pergunta === novos_dados.pergunta && flashcard_atual.id !== id) {
+            if (flashcard_atual.pergunta === novos_dados.pergunta && flashcard_atual.id !== Number(id)) {
                 pergunta_em_uso = true;
                 break;
             }
         }
 
         if (pergunta_em_uso) {
-            console.log(" Erro: A pergunta já existe ! ");
+            console.log(`${negrito}${vermelho}⦙ Erro: A pergunta já existe!${reset}`);
             return;
         }
     }
@@ -31,6 +32,7 @@ const atualizar_flashcard = (id, novos_dados) => {
     flashcards[indice].pergunta = novos_dados.pergunta || flashcards[indice].pergunta;
     flashcards[indice].resposta = novos_dados.resposta || flashcards[indice].resposta;
 
-    console.log("Sucesso: Flashcard atualizado!");
+    console.log(`${negrito}${rosa}⦙ Flashcard atualizado com sucesso!${reset}`);
 };
+
 export default atualizar_flashcard;
