@@ -52,20 +52,21 @@ do {
             console.clear();
             adicionar_baralho(novo_baralho);
             console.log();
-            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+            console.clear();
         break;
     
         case 2:
 
             let novo_flashcard = { 
                 pergunta:prompt(`${negrito}${ciano}⦙ Digite sua pergunta: ${reset}`),
-                resposta: prompt(`${negrito}${ciano}⦙ Digite a sua resposta: ${reset}`)
+                resposta: prompt(`${negrito}${ciano}⦙ Digite a sua resposta: ${reset}`),
+                idBaralho: Number(prompt(`${negrito}${ciano}⦙ Digite o ID do baralho: ${reset}`))
             };
             console.clear();
             adicionar_flashcard(novo_flashcard,flashcards);
             console.log();
-            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -73,7 +74,7 @@ do {
             
             listar_baralho(baralhos);
             console.log();
-            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -81,17 +82,17 @@ do {
             
             listar_flashcard(flashcards);
             console.log();
-            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
         case 5:
             
-            id_escolhido = prompt(`${negrito}${ciano}⦙ Digite o ID desejado: ${reset}`);
+            id_escolhido = prompt(`${negrito}${ciano}⦙ Digite o ID do baralho desejado: ${reset}`);
             listar_por_baralho(id_escolhido);
             
             console.log();
-            prompt(`${negrito}${rosa}⦙ Digite${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -100,18 +101,25 @@ do {
                 novos_dados = {
                     titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
                 };
+                console.clear();
                 atualizar_baralhos(id, novos_dados, baralhos);
+                console.log();
+                prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
         case 7:
 
+            let id_flashcard = prompt(`${negrito}${ciano}⦙ Digite o ID do flashcard: ${reset}`);
             novos_dados = {
                 pergunta : prompt(`${negrito}${ciano}⦙ Digite sua pergunta: ${reset}`),
-                resposta: prompt( `${negrito}${ciano}⦙ Digite sua resposta: ${reset}`)  
+                resposta: prompt( `${negrito}${ciano}⦙ Digite sua resposta: ${reset}`)
         
             };
-            atualizar_flashcards(id, novos_dados);
+            console.clear();
+            atualizar_flashcards(id_flashcard, novos_dados);
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -119,13 +127,16 @@ do {
             
             id_remover = parseInt(prompt(`${negrito}${ciano}⦙ ID do baralho a ser removido: ${reset}`));
             confirmar = prompt(`${negrito}${ciano}⦙ Tem certeza que deseja remover este baralho? (sim/não): ${reset}`);
+            console.clear();
 
             if (confirmar.toLowerCase() === 'sim') {
-                remover_baralho(baralhos, id_remover);
+                remover_baralho(baralhos, flashcards, id_remover);
                 console.log(`${negrito}${rosa}⦙ Baralho removido com sucesso!${reset}`);
             } else {
                 console.log(`${negrito}${vermelho}⦙ Operação cancelada.${reset}`);
             };
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
@@ -133,6 +144,7 @@ do {
 
             id_remover = parseInt(prompt(`${negrito}${ciano}⦙ ID do flashcard a ser removido: ${reset}`));
             confirmar = prompt(`${negrito}${ciano}⦙ Tem certeza que deseja remover este flashcard? (sim/não): ${reset}`);
+            console.clear();
 
             if (confirmar.toLowerCase() === 'sim') {
                 remover_flashcard(flashcards, id_remover);
@@ -140,12 +152,16 @@ do {
             } else {
                 console.log(`${negrito}${vermelho}⦙ Operação cancelada.${reset}`);
             };
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
         break;
         
         case 10:
             
-            buscar_pergunta(flashcards)
+            buscar_pergunta(flashcards);
+            console.log();
+            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
             
         break;
         
