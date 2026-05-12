@@ -211,14 +211,6 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 - **Lucas Eduardo Galvão Rodrigues** - [@Apollo2210](https://github.com/Apollo2210)
 - **Wendel Jhonatan Sauter** - [@wendel0001](https://github.com/wendel0001)
 
-## 📞 Suporte
-
-Encontrou um problema? Verifique:
-1. Se Node.js está instalado: `node --version`
-2. Se as dependências foram instaladas: `npm install`
-3. Se está na pasta correta do projeto
-4. Se os arquivos de dados existem em `Dados/`
-
 ---
 
 **Versão:** 1.0.0  
