@@ -1,33 +1,27 @@
+import { negrito, vermelho, reset, rosa } from "../cores_terminal.js";
+
 const atualizar_baralho = (id, novos_dados, baralhos) => {
 
-const indice = baralhos.findIndex(baralho => baralho.id === id);
+    const indice = baralhos.findIndex(baralho => baralho.id === Number(id));
 
-baralhos[indice].id
+    if (indice === -1) {
+        console.log(`${negrito}${vermelho}⦙ Erro: Baralho não encontrado.${reset}`);
+        return;
+    }
 
- if (indice === -1) {
-    console.log("Erro: Baralho não encontrado.");
-    return;
-}
-
-if (novos_dados.titulo) {
-    const conflitos = baralhos.filter(baralho => 
-            baralho.titulo === novos_dados.titulo && baralho.id !== id
-            );
-            
-            
-            if (conflitos.length > 0) {
-                console.log("Erro: Os novos dados já estão em uso por outro baralho."); 
-                return;
-            }
-}
-
+    if (novos_dados.titulo) {
+        const conflitos = baralhos.filter(baralho => 
+            baralho.titulo === novos_dados.titulo && baralho.id !== Number(id)
+        );
         
-        
-        baralhos[indice].id = novos_dados.id || baralhos[indice].id;
-        baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo;
-        
-        console.log("Baralho atualizado com sucesso!");
-    };
-    
-    export default atualizar_baralho;
-    
+        if (conflitos.length > 0) {
+            console.log(`${negrito}${vermelho}⦙ Erro: Os novos dados já estão em uso por outro baralho.${reset}`); 
+            return;
+        }
+    }
+
+    baralhos[indice].titulo = novos_dados.titulo || baralhos[indice].titulo;
+    console.log(`${negrito}${rosa}⦙ Baralho atualizado com sucesso!${reset}`);
+};
+
+export default atualizar_baralho;
