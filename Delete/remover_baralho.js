@@ -1,12 +1,22 @@
+import { negrito, vermelho, reset } from "../cores_terminal.js";
+
 const remover_baralho = (baralhos, flashcards, id) => {
     
     const indice = baralhos.findIndex(baralho => baralho.id === id);
 
-    if (indice !== -1) {
-        baralhos.splice(indice, 1);
+    if (indice === -1) {
+        console.log(`${negrito}${vermelho}⦙ Erro: Baralho não encontrado!${reset}`);
+        return;
+    }
 
-        return flashcards.filter(flashcard => flashcard.baralho_id !== id);
-    };
+    baralhos.splice(indice, 1);
+    
+    // Remove todos os flashcards vinculados a este baralho (exclusão em cascata)
+    for (let i = flashcards.length - 1; i >= 0; i--) {
+        if (flashcards[i].idBaralho === id) {
+            flashcards.splice(i, 1);
+        }
+    }
 };
 
 export default remover_baralho;
