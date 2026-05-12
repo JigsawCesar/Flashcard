@@ -3,31 +3,37 @@ import { reset, negrito, vermelho, rosa } from "../cores_terminal.js";
 const adicionar_flashcard = (novo_flashcard, flashcards) => {
     
   
-    const id_em_uso = flashcards.filter(f => f.id === novo_flashcard.id);
+    const id_em_uso = flashcards.filter(flashcard => flashcard.id === novo_flashcard.id);
     
     if (id_em_uso.length > 0) {
         console.log(`${negrito}${vermelho}⦙ Erro: O ID informado já está em uso! ${reset}`);
         return;
     };
-    const novo_id = flashcards.length > 0
-    ? flashcards[flashcards.length - 1].id + 1
-    : 1;
+
+    let novo_id;
+
+    if (flashcards.length > 0) {
+        novo_id = flashcards[flashcards.length - 1].id + 1;
+    } else {
+        novo_id = 1;
+    };
    
     if (novo_flashcard.pergunta) {
-        const pergunta_em_uso = flashcards.filter(f => 
-            f.pergunta === novo_flashcard.pergunta
+        const pergunta_em_uso = flashcards.filter(flashcard => 
+            flashcard.pergunta === novo_flashcard.pergunta
         );
 
         if (pergunta_em_uso.length > 0) {
-            console.log(" Erro: A pergunta já existe ! ");
+            console.log(`${negrito}${vermelho}⦙ Erro: A pergunta já existe ! ${reset}`);
             return;
-        }
-    }
+        };
+    };
 
     const flashcard_formatado = {
         id: novo_id,
         pergunta: novo_flashcard.pergunta,
-        resposta: novo_flashcard.resposta
+        resposta: novo_flashcard.resposta,
+        idBaralho: novo_flashcard.idBaralho
     };
 
     flashcards.push(flashcard_formatado);
