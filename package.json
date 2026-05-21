@@ -1,9 +1,9 @@
 {
   "name": "flashcard",
   "version": "1.0.0",
-  "type": "module", 
+  "type": "module",
   "dependencies": {
-    "prompt-sync": "^4.2.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "prompt-sync": "^4.2.0"
   }
 }

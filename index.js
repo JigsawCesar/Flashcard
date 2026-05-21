@@ -16,160 +16,36 @@ import remover_flashcard from "./Delete/remover_flashcard.js";
 import buscar_pergunta from "./Search/buscar_pergunta.js";
 import menu from "./menu.js"
 
-let opcao = 0;
-let id_escolhido = 0;
-let confirmar = "";
-let id_remover = 0;
-let novos_dados = {};
+import express from "express"; // chamei o express para criar o servidor 
+const app = express(); // criei o servidor
+const porta = 3000; // defini a porta onde o servidor vai rodar
 
-do {
+app.use(express.json());
+app.get("/", (req, res) => { // criei a rota para a página inicial
+  res.send("Bem-vindo ao Flashcard!"); //adicionei uma resposta para a rota
+});
 
-    menu();
-    opcao = Number(prompt(`${negrito}${ciano}⦙ Digite a opção desejada: ${reset}`));
-    console.clear();
-
-    switch (opcao) {
-
-        case 0:
-
-            console.log(`${roxo}    
-╭────────────────────────────────────╮                              
-│${reset}        👋 Até a próxima!${roxo} 👋        │
-╰────────────────────────────────────╯${reset}\n`);
-            setTimeout(function() {
-                
-                console.clear();
-                
-            }, 2000);
-
-        break;
-        
-        case 1:
-
-            let novo_baralho = {
-                titulo: prompt(`${negrito}${ciano}⦙ Digite o título do baralho: ${reset}`)
-            };
-            console.clear();
-            adicionar_baralho(novo_baralho);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-            console.clear();
-        break;
+app.post("/flashcard", (req, res) => {
+    let idflashcards; // declarei a variável para o id do flashcard
+    const { pergunta, resposta, idbaralho } = req.body; // peguei os dados do corpo da requisição
+    if (flashcards.length === 0) {
+    idflashcards = 1; 
+    } else {
+    idflashcards = flashcards[flashcards.length - 1].idflashcards + 1; // gerei um novo id para o flashcard
+    }
+   
+   
+        const novoFlashcard = { idflashcards, pergunta, resposta, idbaralho }; // criei um novo flashcard com os dados recebidos
     
-        case 2:
+    flashcards.push(novoFlashcard); // adicionei o novo flashcard ao array de flashcards
+    res.status(201).send({message :"Flashcard criado com sucesso!",listflashcard: flashcards}); // enviei uma resposta de sucesso para o cliente
+})
 
-            let novo_flashcard = { 
-                pergunta:prompt(`${negrito}${ciano}⦙ Digite sua pergunta: ${reset}`),
-                resposta: prompt(`${negrito}${ciano}⦙ Digite a sua resposta: ${reset}`),
-                idBaralho: Number(prompt(`${negrito}${ciano}⦙ Digite o ID do baralho: ${reset}`))
-            };
-            console.clear();
-            adicionar_flashcard(novo_flashcard,flashcards);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
-        break;
-        
-        case 3:
-            
-            listar_baralho(baralhos);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
-        break;
-        
-        case 4:
-            
-            listar_flashcard(flashcards);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
-        break;
-        
-        case 5:
-            
-            id_escolhido = prompt(`${negrito}${ciano}⦙ Digite o ID do baralho desejado: ${reset}`);
-            listar_por_baralho(id_escolhido);
-            
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
+app.listen(porta, () => { // coloquei o servidor para ouvir a porta definida
+  console.log(`Servidor rodando em http://localhost:${porta}`); // adicionei um console log para informar que o servidor está rodando
+});
 
-        break;
-        
-        case 6:
-                let id = prompt(`${negrito}${ciano}⦙ Digite o id do baralho: ${reset}`)
-                novos_dados = {
-                    titulo: prompt(`${negrito}${ciano}⦙ Digite um novo titulo: ${reset}`)
-                };
-                console.clear();
-                atualizar_baralhos(id, novos_dados, baralhos);
-                console.log();
-                prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
 
-        break;
-        
-        case 7:
-
-            let id_flashcard = prompt(`${negrito}${ciano}⦙ Digite o ID do flashcard: ${reset}`);
-            novos_dados = {
-                pergunta : prompt(`${negrito}${ciano}⦙ Digite sua pergunta: ${reset}`),
-                resposta: prompt( `${negrito}${ciano}⦙ Digite sua resposta: ${reset}`)
-        
-            };
-            console.clear();
-            atualizar_flashcards(id_flashcard, novos_dados);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-
-        break;
-        
-        case 8:
-            
-            id_remover = parseInt(prompt(`${negrito}${ciano}⦙ ID do baralho a ser removido: ${reset}`));
-            confirmar = prompt(`${negrito}${ciano}⦙ Tem certeza que deseja remover este baralho? (sim/não): ${reset}`);
-            console.clear();
-
-            if (confirmar.toLowerCase() === 'sim') {
-                remover_baralho(baralhos, flashcards, id_remover);
-                console.log(`${negrito}${rosa}⦙ Baralho removido com sucesso!${reset}`);
-            } else {
-                console.log(`${negrito}${vermelho}⦙ Operação cancelada.${reset}`);
-            };
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-
-        break;
-        
-        case 9:
-
-            id_remover = parseInt(prompt(`${negrito}${ciano}⦙ ID do flashcard a ser removido: ${reset}`));
-            confirmar = prompt(`${negrito}${ciano}⦙ Tem certeza que deseja remover este flashcard? (sim/não): ${reset}`);
-            console.clear();
-
-            if (confirmar.toLowerCase() === 'sim') {
-                remover_flashcard(flashcards, id_remover);
-                console.log(`${negrito}${rosa}⦙ Flashcard removido com sucesso!${reset}`);
-            } else {
-                console.log(`${negrito}${vermelho}⦙ Operação cancelada.${reset}`);
-            };
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-
-        break;
-        
-        case 10:
-            
-            buscar_pergunta(flashcards);
-            console.log();
-            prompt(`${negrito}${rosa}⦙ Pressione${reset} ${verde}Enter${reset} ${negrito}${rosa}para voltar ao menu ...${reset}`);
-            
-        break;
-        
-        default:
-
-            console.log(`${negrito}${vermelho}⦙ Opção inválida. Tente novamente.${reset}`);
-            
-        break;
-    };
-
-} while (opcao != 0);
