@@ -1,3 +1,4 @@
+import baralhos from "../Dados/baralho.js";
 import { ciano, vermelho, negrito, reset } from "../cores_terminal.js";
 
 const listar_flashcard = (flashcards) => {
@@ -8,9 +9,14 @@ const listar_flashcard = (flashcards) => {
     };
 
     flashcards.forEach(flashcard => {
-        console.log(`\n${negrito}${ciano}\n⦙ ID:${reset} ${flashcard.id}`);
-        console.log(`${negrito}${ciano}⦙ Pergunta:${reset} ${flashcard.pergunta}`);
+        const baralho = baralhos.find(b => b.id === flashcard.idBaralho);
+        const nome_baralho = baralho ? baralho.titulo : "Desconhecido";
+        console.log(`${negrito}${ciano}\n⦙ ID:${reset} ${flashcard.id} ${negrito}${ciano}`);
+        console.log(`${negrito}${ciano}⦙ Baralho:${reset} ${nome_baralho}`);
+        console.log(`\n${negrito}${ciano}⦙ Pergunta:${reset} ${flashcard.pergunta}`);
         console.log(`${negrito}${ciano}⦙ Resposta:${reset} ${flashcard.resposta}`);
+        console.log("______________________________________________________________________");
+        
         
     });
 
