@@ -11,7 +11,6 @@ const remover_baralho = (baralhos, flashcards, id) => {
 
     baralhos.splice(indice, 1);
     
-    // Remove todos os flashcards vinculados a este baralho (exclusão em cascata)
     for (let i = flashcards.length - 1; i >= 0; i--) {
         if (flashcards[i].idBaralho === id) {
             flashcards.splice(i, 1);

@@ -3,15 +3,6 @@ import { reset, negrito, vermelho, rosa } from "../cores_terminal.js";
 
 const adicionar_baralho = (novo_baralho) => {
    
-    const conflitos_id = baralhos.filter(baralho => 
-        baralho.id === novo_baralho.id
-    );
-
-    if (conflitos_id.length > 0) {
-        console.log(`${negrito}${vermelho}⦙ Erro: o ID informado já está em uso!${reset}`);
-        return;
-    }
-    
     const novo_id = baralhos.length > 0
     ? baralhos[baralhos.length - 1].id + 1
     : 1;

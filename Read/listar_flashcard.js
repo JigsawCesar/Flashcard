@@ -1,4 +1,3 @@
-// Exibir todos os flashcards cadastrados
 import { ciano, vermelho, negrito, reset } from "../cores_terminal.js";
 
 const listar_flashcard = (flashcards) => {
