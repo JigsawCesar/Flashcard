@@ -1,7 +1,15 @@
+import baralhos from "../Dados/baralho.js";
 import { reset, negrito, vermelho, rosa } from "../cores_terminal.js";
 
 const adicionar_flashcard = (novo_flashcard, flashcards) => {
     
+    const baralho_existe = baralhos.some(baralho => baralho.id === novo_flashcard.idBaralho);
+
+    if (!baralho_existe) {
+        console.log(`${negrito}${vermelho}⦙ Erro: Baralho com ID ${novo_flashcard.idBaralho} não encontrado! ${reset}`);
+        return;
+    }
+
     let novo_id;
 
     if (flashcards.length > 0) {
